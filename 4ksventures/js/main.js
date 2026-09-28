@@ -6,7 +6,12 @@
 
 const WHATSAPP_NUMBER = "254011330425"; // digits only, country code, no leading +
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    initMobileNav();
+    markActiveNavLink();
+    wireWhatsappLinks();
+    wireContactForm();
+});
 
 function normalizePagePath(path) {
     if (!path) return "index.html";
