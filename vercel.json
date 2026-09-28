@@ -1,0 +1,31 @@
+{
+    "rewrites": [{
+            "source": "/services",
+            "destination": "/services.html"
+        },
+        {
+            "source": "/about",
+            "destination": "/about.html"
+        },
+        {
+            "source": "/contact",
+            "destination": "/contact.html"
+        }
+    ],
+    "redirects": [{
+            "source": "/services.html",
+            "destination": "/services",
+            "permanent": true
+        },
+        {
+            "source": "/about.html",
+            "destination": "/about",
+            "permanent": true
+        },
+        {
+            "source": "/contact.html",
+            "destination": "/contact",
+            "permanent": true
+        }
+    ]
+}
