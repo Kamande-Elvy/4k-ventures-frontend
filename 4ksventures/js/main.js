@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function normalizePagePath(path) {
-    if (!path) return "home.html";
+    if (!path) return "home";
 
     const normalized = String(path)
         .replace(/\\/g, "/")
@@ -23,14 +23,14 @@ function normalizePagePath(path) {
         .replace(/\/+/g, "/")
         .replace(/\/$/, "");
 
-    if (!normalized || normalized === "/") return "home.html";
+    if (!normalized || normalized === "/") return "home";
 
     const lastSegment = normalized.split("/").pop();
-    const pageName = lastSegment || "home.html";
+    const pageName = (lastSegment || "home").replace(/\.html$/i, "") || "home";
 
-    if (pageName === "home") return "home.html";
-    if (pageName === "index") return "home.html";
-    return pageName || "home.html";
+    if (pageName === "index") return "home";
+    if (pageName === "home") return "home";
+    return pageName || "home";
 }
 
 function isMatchingNavTarget(href) {
@@ -38,7 +38,12 @@ function isMatchingNavTarget(href) {
     const target = normalizePagePath(href);
     const equivalentPages = new Set([current]);
 
-    if (current === "home.html") equivalentPages.add("home.html");
+    if (current === "home") {
+        equivalentPages.add("home");
+        equivalentPages.add("home.html");
+    }
+
+    if (target === "home") equivalentPages.add("home.html");
 
     return equivalentPages.has(target);
 }

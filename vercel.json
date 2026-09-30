@@ -1,33 +1,40 @@
 {
-  "rewrites": [
-    {
-      "source": "/services",
-      "destination": "/services.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/about.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/services.html",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
-      "source": "/about.html",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/contact.html",
-      "destination": "/contact",
-      "permanent": true
-    }
-  ]
+    "rewrites": [
+        { "source": "/", "destination": "/home.html" },
+        { "source": "/home", "destination": "/home.html" },
+        { "source": "/about", "destination": "/about.html" },
+        { "source": "/services", "destination": "/services.html" },
+        { "source": "/visa-uae", "destination": "/visa-uae.html" },
+        { "source": "/visa-us", "destination": "/visa-us.html" },
+        { "source": "/flights", "destination": "/flights.html" },
+        { "source": "/travel-tourism", "destination": "/travel-tourism.html" },
+        { "source": "/how-it-works", "destination": "/how-it-works.html" },
+        { "source": "/faq", "destination": "/faq.html" },
+        { "source": "/contact", "destination": "/contact.html" },
+        { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+        { "source": "/terms-conditions", "destination": "/terms-conditions.html" },
+        { "source": "/visa-disclaimer", "destination": "/visa-disclaimer.html" },
+        { "source": "/refund-policy", "destination": "/refund-policy.html" },
+        { "source": "/cookie-policy", "destination": "/cookie-policy.html" },
+        { "source": "/complaints", "destination": "/complaints.html" }
+    ],
+    "redirects": [
+        { "source": "/index.html", "destination": "/home", "permanent": true },
+        { "source": "/home.html", "destination": "/home", "permanent": true },
+        { "source": "/about.html", "destination": "/about", "permanent": true },
+        { "source": "/services.html", "destination": "/services", "permanent": true },
+        { "source": "/visa-uae.html", "destination": "/visa-uae", "permanent": true },
+        { "source": "/visa-us.html", "destination": "/visa-us", "permanent": true },
+        { "source": "/flights.html", "destination": "/flights", "permanent": true },
+        { "source": "/travel-tourism.html", "destination": "/travel-tourism", "permanent": true },
+        { "source": "/how-it-works.html", "destination": "/how-it-works", "permanent": true },
+        { "source": "/faq.html", "destination": "/faq", "permanent": true },
+        { "source": "/contact.html", "destination": "/contact", "permanent": true },
+        { "source": "/privacy-policy.html", "destination": "/privacy-policy", "permanent": true },
+        { "source": "/terms-conditions.html", "destination": "/terms-conditions", "permanent": true },
+        { "source": "/visa-disclaimer.html", "destination": "/visa-disclaimer", "permanent": true },
+        { "source": "/refund-policy.html", "destination": "/refund-policy", "permanent": true },
+        { "source": "/cookie-policy.html", "destination": "/cookie-policy", "permanent": true },
+        { "source": "/complaints.html", "destination": "/complaints", "permanent": true }
+    ]
 }
