@@ -4,7 +4,7 @@
    WhatsApp deep link, and the contact form (mailto handoff for now).
    ========================================================================== */
 
-const WHATSAPP_NUMBER = "254011330425"; // digits only, country code, no leading +
+const WHATSAPP_NUMBER = "0182668370"; // digits only; WhatsApp number for the business
 
 document.addEventListener("DOMContentLoaded", () => {
     initMobileNav();
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function normalizePagePath(path) {
-    if (!path) return "index.html";
+    if (!path) return "home.html";
 
     const normalized = String(path)
         .replace(/\\/g, "/")
@@ -23,10 +23,24 @@ function normalizePagePath(path) {
         .replace(/\/+/g, "/")
         .replace(/\/$/, "");
 
-    if (!normalized || normalized === "/") return "index.html";
+    if (!normalized || normalized === "/") return "home.html";
 
     const lastSegment = normalized.split("/").pop();
-    return lastSegment || "index.html";
+    const pageName = lastSegment || "home.html";
+
+    if (pageName === "home") return "home.html";
+    if (pageName === "index") return "home.html";
+    return pageName || "home.html";
+}
+
+function isMatchingNavTarget(href) {
+    const current = normalizePagePath(location.pathname);
+    const target = normalizePagePath(href);
+    const equivalentPages = new Set([current]);
+
+    if (current === "home.html") equivalentPages.add("home.html");
+
+    return equivalentPages.has(target);
 }
 
 /* ---------- Mobile nav toggle ---------- */
@@ -54,13 +68,10 @@ function initMobileNav() {
 
 /* ---------- Highlight the current page in the nav ---------- */
 function markActiveNavLink() {
-    const current = normalizePagePath(location.pathname);
-
     document.querySelectorAll(".main-nav a").forEach((link) => {
         const href = link.getAttribute("href");
-        const normalizedHref = normalizePagePath(href);
 
-        if (normalizedHref === current) {
+        if (isMatchingNavTarget(href)) {
             link.setAttribute("aria-current", "page");
         }
     });
