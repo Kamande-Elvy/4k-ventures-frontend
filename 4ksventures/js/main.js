@@ -3,6 +3,7 @@
    Shared behaviour across every page: mobile nav, current-page highlight,
    WhatsApp deep link, and the contact form (mailto handoff for now).
    ========================================================================== */
+console.log("🔥 MAIN.JS IS WORKING!");
 
 const WHATSAPP_NUMBER = "0182668370"; // digits only; WhatsApp number for the business
 
