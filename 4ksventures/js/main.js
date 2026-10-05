@@ -86,10 +86,19 @@ function markActiveNavLink() {
 /* ---------- WhatsApp links ---------- */
 function wireWhatsappLinks() {
     document.querySelectorAll("[data-whatsapp]").forEach((el) => {
-        const msg = el.getAttribute("data-whatsapp") || "Hello 4KS Ventures, I'd like some help with";
-        el.setAttribute("href", `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener");
+
+        const msg =
+            el.getAttribute("data-whatsapp") ||
+            "Hello 4KS Ventures, I'd like some help.";
+
+        const whatsappUrl =
+            `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+        el.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.open(whatsappUrl, "_blank");
+        });
+
     });
 }
 
