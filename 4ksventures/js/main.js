@@ -265,7 +265,12 @@ function initChecker() {
         window.open(whatsappUrl(message), "_blank", "noopener");
     });
 
-    print?.addEventListener("click", () => window.print());
+    print?.addEventListener("click", () => {
+        const html = document.documentElement;
+        html.classList.add("print-slip");
+        window.addEventListener("afterprint", () => html.classList.remove("print-slip"), { once: true });
+        window.print();
+    });
 
     render();
 }
