@@ -56,4 +56,4 @@ Photos are from [Unsplash](https://unsplash.com), and the photographers are cred
 ## Contributors
 
 - [Kamande-Elvy](https://github.com/Kamande-Elvy)
-- Juma
+- [Jjumaaa](https://github.com/Jjumaaa)
