@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.4ksventures.com/sitemap.xml
+Sitemap: https://4ksventures.vercel.app/sitemap.xml
