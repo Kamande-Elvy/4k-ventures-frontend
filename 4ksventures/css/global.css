@@ -1984,3 +1984,90 @@ figcaption {
         padding: 0 15px;
     }
 }
+
+/* ---------- Printing the document checklist only ---------- */
+/* main.js adds .print-slip to <html> while the "Print it" button prints. */
+@media print {
+    @page {
+        margin: 18mm;
+    }
+
+    html.print-slip body > :not(main),
+    html.print-slip main > :not(:has([data-checker])),
+    html.print-slip .checker-intro,
+    html.print-slip .slip-actions {
+        display: none !important;
+    }
+
+    html.print-slip {
+        color-scheme: light;
+    }
+
+    html.print-slip,
+    html.print-slip body,
+    html.print-slip main,
+    html.print-slip .section,
+    html.print-slip .checker {
+        display: block;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: #000;
+        min-height: 0;
+    }
+
+    html.print-slip .slip {
+        -webkit-mask: none;
+        mask: none;
+        background: #fff;
+        color: #000;
+        padding: 0;
+        max-width: none;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    html.print-slip .slip::before {
+        content: "4KS Ventures Tours and Travel · Suite B18, Rehema House, University Way, Nairobi";
+        display: block;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #000;
+        font-weight: 600;
+    }
+
+    html.print-slip .slip::after {
+        content: "Phone / WhatsApp 0182 668 370 · 4ksventure226@gmail.com";
+        display: block;
+        margin-top: 24px;
+        padding-top: 12px;
+        border-top: 1px solid #000;
+    }
+
+    html.print-slip .slip li {
+        break-inside: avoid;
+    }
+
+    html.print-slip .slip input[type="checkbox"] {
+        background: #fff;
+        border: 2px solid #000;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    html.print-slip .slip input[type="checkbox"]:checked {
+        background: #000;
+    }
+
+    html.print-slip .slip input[type="checkbox"]::after {
+        border-color: #fff;
+        transition: none;
+    }
+
+    html.print-slip .slip input:checked + span,
+    html.print-slip .slip-head p,
+    html.print-slip .slip-count,
+    html.print-slip .slip-note {
+        color: #000;
+    }
+}
